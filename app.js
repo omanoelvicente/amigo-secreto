@@ -9,11 +9,21 @@ function addFriend() {
         message.innerHTML = 'Por favor, insira um nome';
     } else {
         friends.push(getFriend);
-        console.log(friends);
         clearField();
+        createListOfFriends(friends);
     }
 
 }
+
+function createListOfFriends(friends) {
+    let setFriend = "";
+    friends.forEach((friend) => {
+        setFriend += "<li>" + friend + "</li>";
+    });
+
+    document.getElementById("listOfFriends").innerHTML = setFriend;
+}
+
 
 function clearField() {
     document.getElementById("friend").value = '';
